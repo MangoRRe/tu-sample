@@ -1,5 +1,6 @@
 package com.framework.home;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,4 +37,8 @@ public class HomeController {
 	    model.addAttribute("cookieMessages", cookieList);
 	    return "home"; // home.html
 	}
+=======
+public class HomeController {
+
+>>>>>>> bc01d227b537fb1ebd05fbd9298f23910aae4756
 }
