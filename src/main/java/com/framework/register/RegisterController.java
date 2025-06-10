@@ -22,20 +22,16 @@ public class RegisterController {
 	public RegisterController(RegisterService registerService) {
 		this.registerService = registerService;
 	}
-	
-	
-	
+
 	@GetMapping("/register")
 	public ModelAndView register() {
 		log.info("회원 가입 폼 요청");
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("register"); // register.html view resolver
-		
+		mv.setViewName("register"); // register.html view resolve
 		
 		return mv;
 	}
-	
 	
 	@PostMapping("request-register")
 	@ResponseBody
@@ -44,15 +40,15 @@ public class RegisterController {
 		return result;
 	}
 	
-	@GetMapping("/detail/{userId)")
+	
+	@GetMapping("/detail/{userId}")
 	public ModelAndView getMember(@PathVariable("userId") String userId) {
-		log.info("회원 상세페이지 호출");
+		log.info("회원 상세 페이지 호출");
 		ModelAndView mv = new ModelAndView();
 		
 		Map<String, Object> result = registerService.getMember(userId);
 		mv.addObject("result", result);
-		mv.setViewName("member-detail");		
-		
+		mv.setViewName("member-detail");
 		
 		return mv;
 	}
@@ -63,6 +59,26 @@ public class RegisterController {
 		Map<String, Object> result = registerService.requestModify(params);
 		return result;
 	}
+	
+	@PostMapping("request-remove")
+	@ResponseBody
+	public Map<String, Object> requestRemove(@RequestBody Map<String, Object> params) {
+		Map<String, Object> result = registerService.requestRemove(params);
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
